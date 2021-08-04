@@ -1,32 +1,64 @@
 <template>
   <div class="home">
-
-	  <div class="add">
-		  <input class="add_item title" type="text" placeholder="Title">
-		  <textarea class="add_item about" name="About" id="" cols="10" rows="10" placeholder="About Tasks"></textarea>
+		<form class="add" action="" @submit.prevent="setTitle">
+		  <input class="add_item " type="text"  placeholder="Title" >
+		  <textarea class="add_item " name="About" id="" cols="10" rows="10"  placeholder="About Task" ></textarea>
 		  <div class="btns">
-			  <button  class="glow-on-hover" type="button">Add</button>
+			  <button  class="glow-on-hover" type="submit" >Add</button>
 		  </div>
-	  </div>
+		</form>
+ <div class="task" :class="none(task.Done)"  v-for="task in tasks"  :key="task">
+	 <span class="title">{{task.title}}</span>
+	 <span class="about">{{task.about}}</span>
+	 {{task.Done}}
+	<div class="btns">
+		 <button class="glow-on-hover" @click="taskDone(task)">Done</button>
 
-
-
+	</div>
+	 </div>
   </div>
+
+
+
+ 
 </template>
 
 <script>
+	import {mapActions, mapGetters, mapState} from 'vuex'
+export default {
 
+	computed: {
+		...mapGetters('Home',{tasks: 'all'}),
+
+	},
+	methods:{
+		none(a){
+			if(a){
+				return 'none'
+			}
+		},
+		...mapActions('Home', {setTitle: 'setTitle'}),
+		...mapActions('Home', {addTask: 'addTask'}),
+		...mapActions('Home', {taskDone: 'taskDone'}),
+
+		
+	},
+	
+}
 </script>
 
 <style lang="sass">
 @import '@/assets/main.sass'
-
+.none
+	display: none !important
 .home
 	display: flex
 	flex-direction: column
 	align-items: center
 	justify-content: flex-start
 	width: 75%
+	overflow: auto
+	height: 700px
 
 .add
 	display: flex
@@ -37,6 +69,35 @@
 	padding: 15px
 	border-radius: 20px
 	box-shadow: 0px 0px 20px 10px $trdColor
+.task
+	display: flex
+	flex-direction: column
+	background-color: $secColor
+	height: 170px
+	width: 90%
+	margin-top: 20px
+	padding: 15px
+	border-radius: 20px
+	box-shadow: 0px 0px 20px 10px $trdColor
+.title
+	margin: 7px
+	padding: 5px	
+	font-size: 20px
+	font-weight: 600
+	text-align: center
+	color: $mainColor
+.about
+	height: 50%
+	overflow: auto
+	display: block
+	word-break: break-all
+	color: $mainColor
+	text-align: center
+
+
+.error
+	box-shadow: 0px 0px 5px 5px red
+
 
 .add_item
 	border-radius: 10px
@@ -103,10 +164,10 @@
     border-radius: 10px;
 
 
-@keyframes glowing 
-		0% { background-position: 0 0; }
-		50% { background-position: 400% 0; }
-		100% { background-position: 0 0; }
+// @keyframes glowing 
+// 		0% { background-position: 0 0; }
+// 		50% { background-position: 400% 0; }
+// 		100% { background-position: 0 0; }
 
 
 

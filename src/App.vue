@@ -2,17 +2,17 @@
 
 	<header class="head">
 		<span>
-		Tasks for today: 
+		Tasks for today: {{today}}
 		</span>
 		<span>
-		Tasks completed:
+		Tasks completed: {{done}}
 		</span>
 	</header>
 
 	<div class="app">
 		  <div id="nav">
     		<router-link to="/">Home</router-link> 
-    		<router-link to="/about">Completed</router-link>
+    		<router-link to="/active">Completed</router-link>
 		</div>
 			<router-view/>
 	</div>
@@ -21,7 +21,17 @@
 
 </template>
 
+<script>
+	import {mapActions, mapGetters, mapState} from 'vuex'
 
+export default {
+	computed:{
+		...mapGetters('Home',{done: 'done'}),
+		...mapGetters('Home',{today: 'today'}),
+
+	}
+}
+</script>
 <style lang="sass">
 @import '@/assets/main.sass'
 

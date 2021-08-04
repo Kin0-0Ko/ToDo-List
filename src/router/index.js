@@ -1,7 +1,6 @@
 import { createRouter, createWebHistory } from 'vue-router'
 import Home from '../views/Home.vue'
-import InProgress from '../views/InProgress.vue'
-import Active from '../views/ActiveT.vue'
+import Active from '../views/Active.vue'
 const routes = [
   {
     path: '/',
@@ -9,15 +8,10 @@ const routes = [
     component: Home
   },
    {
-   	path: '/Active',
-   	name: 'Active',
+   	path: '/active',
+   	name: 'active',
    	component: Active
    },
-  {
-    path: '/InProgress',
-    name: 'InProgress',
-	component: InProgress,
-  }
 ]
 
 const router = createRouter({
