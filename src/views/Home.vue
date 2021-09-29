@@ -57,7 +57,6 @@ export default {
 	align-items: center
 	justify-content: flex-start
 	width: 75%
-	overflow: auto
 	height: 700px
 
 .add
@@ -164,10 +163,10 @@ export default {
     border-radius: 10px;
 
 
-// @keyframes glowing 
-// 		0% { background-position: 0 0; }
-// 		50% { background-position: 400% 0; }
-// 		100% { background-position: 0 0; }
+@keyframes glowing 
+		0% { background-position: 0 0; }
+		50% { background-position: 400% 0; }
+		100% { background-position: 0 0; }
 
 
 
