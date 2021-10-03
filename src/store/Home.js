@@ -3,9 +3,9 @@ import { createStore } from 'vuex'
 export default {
   namespaced: true,
   state: {
-	  taskCompleat: 0,
-	  taskToday: 0,
-	  Tasks:[],
+	  taskCompleat: getTaskCompleat(),
+	  taskToday: getTasksToDay(),
+	  Tasks: [...getTasks()],
   },
   getters:{
 	all: state => state.Tasks,
@@ -18,12 +18,23 @@ export default {
 			// state.Tasks += a
 			// state.Tasks.push(a)
 			state.taskToday += 1
-			state.Tasks = [ a,...state.Tasks]
+			localStorage.setItem('taskToday', JSON.stringify(state.taskToday))
+			state.Tasks = [a, ...getTasks()]
+			localStorage.setItem('tasks', JSON.stringify(state.Tasks))
+			getTasks()
+			console.log(state.Tasks)
 		},
 		taskDone(state, task) {
 			task.Done = true;
 			state.taskToday -= 1
 			state.taskCompleat += 1
+			localStorage.setItem('taskCompleat', JSON.stringify(state.taskCompleat))
+			localStorage.setItem('taskToday', JSON.stringify(state.taskToday))
+			localStorage.setItem('tasks', JSON.stringify(state.Tasks))
+
+
+
+
 		}
 
   },
@@ -59,3 +70,30 @@ export default {
 	  },
   },
 };
+
+
+
+
+function getTasks() {
+	let a = JSON.parse(localStorage.getItem('tasks'))
+	if(!a){
+		a = []
+	}
+	return a
+}
+
+function getTasksToDay() {
+	let a = JSON.parse(localStorage.getItem('taskToday'))
+		// if (!a) {
+		// 	a = 0
+		// }
+	return a
+}
+
+function getTaskCompleat() {
+	let a = JSON.parse(localStorage.getItem('taskCompleat'))
+	// if (!a) {
+	// 	a = 0
+	// }
+	return a
+}
