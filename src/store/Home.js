@@ -22,7 +22,8 @@ export default {
 			state.Tasks = [a, ...getTasks()]
 			localStorage.setItem('tasks', JSON.stringify(state.Tasks))
 			getTasks()
-			console.log(state.Tasks)
+			// console.log(state.Tasks)
+			// console.log(state.Tasks[state.Tasks.length-1])
 		},
 		taskDone(state, task) {
 			task.Done = true;
@@ -31,21 +32,18 @@ export default {
 			localStorage.setItem('taskCompleat', JSON.stringify(state.taskCompleat))
 			localStorage.setItem('taskToday', JSON.stringify(state.taskToday))
 			localStorage.setItem('tasks', JSON.stringify(state.Tasks))
-
-
-
-
+			removeLastArray(JSON.parse(localStorage.getItem('tasks')));
 		}
 
   },
   actions: {
 	  setTitle(store, e){
-			
 		  if (e.target[0].value != '' && e.target[1].value != '' && e.target[1].value.length >= 15 ) {
 			  store.commit('addTask', {
 			  	title: e.target[0].value,
 			  	about: e.target[1].value,
-				Done: false
+				Done: false,
+				Date: new Date().toLocaleDateString()
 			  });
 		  }
 		  if (e.target[0].value == ''){
@@ -96,4 +94,23 @@ function getTaskCompleat() {
 	// 	a = 0
 	// }
 	return a
+}
+
+
+function removeLastArray(arr){
+	let done = []
+	arr.forEach(el => {
+		if(el.Done == true){
+			done.unshift(el)
+		}   	
+	});
+	
+	console.log(done)
+
+	if(done.length > 11){
+		done.shift()
+	}
+
+
+
 }
