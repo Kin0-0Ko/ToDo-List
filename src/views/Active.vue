@@ -1,10 +1,12 @@
 <template>
 	<div class="done">
-	<div class="done-task" :class="none(task.Done)"  v-for="task in tasks"  :key="task">
-			<span class="title">{{task.title}}</span>
-			<span class="about">{{task.about}}</span>
-			{{task.Done}}
-
+		<div class="done-task" :class="none(task.Done)"  v-for="task in tasks"  :key="task">
+				<span class="title">{{task.title}}</span>
+				<span class="about">{{task.about}}</span>
+				<span class="about">{{task.Date}}</span>
+				<div class="btns">
+		 				<button class="glow-on-hover" >Remove</button>
+				</div>
 		</div>
 	</div>
 </template>
@@ -40,16 +42,15 @@ export default {
 	align-items: center
 	justify-content: flex-start
 	width: 75%
-	overflow: auto
-	height: 700px
 	&-task
 		display: flex
 		flex-direction: column
 		background-color: $secColor
-		height: 170px
+		height: 180px
 		width: 90%
 		margin-top: 20px
 		padding: 15px
 		border-radius: 20px
 		box-shadow: 0px 0px 20px 10px $trdColor
+		
 </style>

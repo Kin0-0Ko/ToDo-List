@@ -32,6 +32,7 @@ export default {
 			localStorage.setItem('taskCompleat', JSON.stringify(state.taskCompleat))
 			localStorage.setItem('taskToday', JSON.stringify(state.taskToday))
 			localStorage.setItem('tasks', JSON.stringify(state.Tasks))
+
 			removeLastArray(JSON.parse(localStorage.getItem('tasks')));
 		}
 
@@ -101,16 +102,14 @@ function removeLastArray(arr){
 	let done = []
 	arr.forEach(el => {
 		if(el.Done == true){
-			done.unshift(el)
+			done.push(el)
 		}   	
 	});
 	
 	console.log(done)
 
-	if(done.length > 11){
-		done.shift()
+	if(done.length >= 10){
+		console.log(done[1])
 	}
-
-
 
 }

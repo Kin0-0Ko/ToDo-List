@@ -7,10 +7,10 @@
 			  <button  class="glow-on-hover" type="submit" >Add</button>
 		  </div>
 		</form>
- <div class="task" :class="none(task.Done)"  v-for="task in tasks"  :key="task">
+ 		<div class="task" :class="none(task.Done)"  v-for="task in tasks"  :key="task">
 	 <span class="title">{{task.title}}</span>
 	 <span class="about">{{task.about}}</span>
-	 {{task.Done}}
+	 
 	<div class="btns">
 		 <button class="glow-on-hover" @click="taskDone(task)">Done</button>
 
@@ -157,7 +157,7 @@ export default {
     position: absolute;
     width: 100%;
     height: 100%;
-    background: $trdColor;
+    background: #1a1a1a;
     left: 0;
     top: 0;
     border-radius: 10px;
