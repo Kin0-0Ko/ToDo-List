@@ -10,6 +10,8 @@
  		<div class="task" :class="none(task.Done)"  v-for="task in tasks"  :key="task">
 	 <span class="title">{{task.title}}</span>
 	 <span class="about">{{task.about}}</span>
+	<span class="about">{{task.Date}}</span>
+
 	 
 	<div class="btns">
 		 <button class="glow-on-hover" @click="taskDone(task)">Done</button>
