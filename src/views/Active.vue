@@ -1,12 +1,12 @@
 <template>
 	<div class="done" >
-		<span class="nothing" :class="noth(tasks)"><h2>Nothing</h2></span>
-		<div class="done-task" :class="none(task.Done)" v-for="task in tasks"  :key="task">
-				<span class="title">{{task.title}}</span>
-				<span class="about">{{task.about}}</span>
-				<span class="about">{{task.Date}}</span>
+		<span class="nothing" :class="noth(Dones)"><h2>Nothing</h2></span>
+		<div class="done-task"  v-for="Done in Dones"  :key="Done">
+				<span class="title">{{Done.title}}</span>
+				<span class="about">{{Done.about}}</span>
+				<span class="about">{{Done.Date}}</span>
 				<div class="btns">
-		 				<button class="glow-on-hover" @click="taskRemove(task)">Remove</button>
+		 				<button class="glow-on-hover" @click="taskRemove(Done)">Remove</button>
 				</div>
 		</div>
 	</div>
@@ -18,11 +18,11 @@
 export default {
 		computed: {
 		...mapGetters('Home',{tasks: 'all'}),
+		...mapGetters('Home',{Dones: 'allDone'}),
 
 		},
 		methods:{
 		noth(a){
-			
 				let int = 0
 				a.forEach(el => {
 					if(el.Done){
@@ -43,7 +43,6 @@ export default {
 				return 'none'
 			}
 		},
-
 		...mapActions('Home', {taskRemove: 'taskRemove'}),
 		},
 }

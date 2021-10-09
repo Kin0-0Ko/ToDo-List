@@ -6,9 +6,11 @@ export default {
 	  taskCompleat: getTaskCompleat(),
 	  taskToday: getTasksToDay(),
 	  Tasks: [...getTasks()],
+	  Dones: [...getTasksDone()]
   },
   getters:{
 	all: state => state.Tasks,
+	allDone: state => state.Dones,
 	done: state => state.taskCompleat,
 	today: state => state.taskToday, 
 
@@ -20,10 +22,11 @@ export default {
 			state.taskToday += 1
 			localStorage.setItem('taskToday', JSON.stringify(state.taskToday))
 			state.Tasks = [a, ...getTasks()]
+			localStorage.setItem('tasksDone', JSON.stringify(state.Dones))
 			localStorage.setItem('tasks', JSON.stringify(state.Tasks))
 			getTasks()
-			// console.log(state.Tasks)
-			// console.log(state.Tasks[state.Tasks.length-1])
+			
+			
 		},
 		taskDone(state, task) {
 			task.Done = true;
@@ -31,26 +34,37 @@ export default {
 			state.taskCompleat += 1
 			localStorage.setItem('taskCompleat', JSON.stringify(state.taskCompleat))
 			localStorage.setItem('taskToday', JSON.stringify(state.taskToday))
-			localStorage.setItem('tasks', JSON.stringify(state.Tasks))
-
-			// removeLastArray(JSON.parse(localStorage.getItem('tasks')));
-		},
-		removeTask(state, remTarget){
-
-			let arr = state.Tasks
-			arr.forEach(function(el, index){
-				if (el == remTarget) {
-					
-					arr.splice(index, 1);
-					
+			state.Tasks.forEach(function(item, index){
+				if (item.Done) {
+					state.Tasks.splice(index, 1);
+					state.Dones.unshift(item)
 				}
 			});
-			localStorage.setItem('tasks', JSON.stringify(arr))
+			if (state.Dones.length > 8) {
+				state.Dones.pop()
+			} else {}
+			localStorage.setItem('tasksDone', JSON.stringify(state.Dones))
+			localStorage.setItem('tasks', JSON.stringify(state.Tasks))
+			
 
-		}
+			
+		},
+		removeTask(state, remTarget){
+			let arr = state.Dones
+			arr.forEach(function(el, index){
+				if (el == remTarget) {
+					arr.splice(index, 1);
+				}
+			});
+			state.taskCompleat -= 1
+			localStorage.setItem('taskCompleat', JSON.stringify(state.taskCompleat))
+			localStorage.setItem('tasksDone', JSON.stringify(arr))
+		},
+
 
   },
   actions: {
+
 	  setTitle(store, e){
 		  if (e.target[0].value != '' && e.target[1].value != '' && e.target[1].value.length >= 15 ) {
 			  store.commit('addTask', {
@@ -113,20 +127,12 @@ function getTaskCompleat() {
 	// }
 	return a
 }
+function getTasksDone(){
+	let a = JSON.parse(localStorage.getItem('tasksDone'))
+	if (!a) {
+		a = []
+	}
+	return a
+}
 
 
-// function removeLastArray(arr){
-// 	let done = []
-// 	arr.forEach(el => {
-// 		if(el.Done == true){
-// 			done.push(el)
-// 		}   	
-// 	});
-	
-// 	console.log(done)
-
-// 	if(done.length >= 10){
-// 		console.log(done[1])
-// 	}
-
-// }
