@@ -4,16 +4,15 @@
 		  <input class="add_item " type="text"  placeholder="Title" >
 		  <textarea class="add_item " name="About" id="" cols="10" rows="10"  placeholder="About Task" ></textarea>
 		  <div class="btns">
+			  <span></span>
 			  <button  class="glow-on-hover" type="submit" >Add</button>
 		  </div>
 		</form>
  		<div class="task" :class="none(task.Done)"  v-for="task in tasks"  :key="task">
 	 <span class="title">{{task.title}}</span>
 	 <span class="about">{{task.about}}</span>
-	<span class="about">{{task.Date}}</span>
-
-	 
 	<div class="btns">
+		<span class="about">{{task.Date}}</span>
 		 <button class="glow-on-hover" @click="taskDone(task)">Done</button>
 
 	</div>
@@ -81,7 +80,7 @@ export default {
 	border-radius: 20px
 	box-shadow: 0px 0px 20px 10px $trdColor
 .title
-	margin: 7px
+	// margin: 7px
 	padding: 5px	
 	font-size: 20px
 	font-weight: 600
@@ -89,7 +88,7 @@ export default {
 	color: $mainColor
 .about
 	height: 50%
-	overflow: auto
+	padding: 0 15px 0 15px
 	display: block
 	word-break: break-all
 	color: $mainColor
@@ -97,7 +96,7 @@ export default {
 
 
 .error
-	box-shadow: 0px 0px 5px 5px red
+	box-shadow: 0px 0px 2.5px 2.5px red
 
 
 .add_item
@@ -122,7 +121,7 @@ export default {
 	
 .btns
 	display: flex
-	justify-content: flex-end
+	justify-content: space-between
 	padding: 5px
 
 .glow-on-hover:before 

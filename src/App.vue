@@ -30,6 +30,7 @@ export default {
 		...mapGetters('Home',{today: 'today'}),
 
 
+
 	}
 }
 </script>
@@ -62,8 +63,8 @@ export default {
 	background-color: $secColor
 	display: flex
 	flex-direction: column
-	align-items: flex-end
-	padding: 10px 50px 10px 0
+	align-items: center
+	padding: 10px 0px 10px 0px
 	
 
 

@@ -114,17 +114,17 @@ function getTasks() {
 
 function getTasksToDay() {
 	let a = JSON.parse(localStorage.getItem('taskToday'))
-		// if (!a) {
-		// 	a = 0
-		// }
+		if (!a) {
+			a = 0
+		}
 	return a
 }
 
 function getTaskCompleat() {
 	let a = JSON.parse(localStorage.getItem('taskCompleat'))
-	// if (!a) {
-	// 	a = 0
-	// }
+	if (!a) {
+		a = 0
+	}
 	return a
 }
 function getTasksDone(){

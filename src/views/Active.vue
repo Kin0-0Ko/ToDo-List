@@ -1,11 +1,11 @@
 <template>
 	<div class="done" >
-		<span class="nothing" :class="noth(Dones)"><h2>Nothing</h2></span>
+		<span class="nothing" :class="noth(Dones)"><h2>There's nothing here yet</h2></span>
 		<div class="done-task"  v-for="Done in Dones"  :key="Done">
 				<span class="title">{{Done.title}}</span>
 				<span class="about">{{Done.about}}</span>
-				<span class="about">{{Done.Date}}</span>
 				<div class="btns">
+						<span class="about">{{Done.Date}}</span>
 		 				<button class="glow-on-hover" @click="taskRemove(Done)">Remove</button>
 				</div>
 		</div>
@@ -67,5 +67,8 @@ export default {
 		padding: 15px
 		border-radius: 20px
 		box-shadow: 0px 0px 20px 10px $trdColor
+.nothing
+	font-size: 20px
+	margin: 0
 		
 </style>
