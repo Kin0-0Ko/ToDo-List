@@ -1,7 +1,9 @@
 <template>
   <div class="home">
 		<form class="add" action="" @submit.prevent="setTitle">
+		  <span class="none">Fill in this field</span>
 		  <input class="add_item " type="text"  placeholder="Title" >
+		  <span class="none">Fill in this field. Mimimum 10 symbols</span>
 		  <textarea class="add_item " name="About" id="" cols="10" rows="10"  placeholder="About Task" ></textarea>
 		  <div class="btns">
 			  <span></span>
@@ -94,6 +96,9 @@ export default {
 	color: $mainColor
 	text-align: center
 
+.warn
+	color: red
+	// padding: 5px 0px 0px 5px
 
 .error
 	box-shadow: 0px 0px 2.5px 2.5px red

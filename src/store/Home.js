@@ -76,8 +76,12 @@ export default {
 		  }
 		  if (e.target[0].value == ''){
 			e.target[0].classList.add('error')
+			e.target.querySelectorAll('.none').forEach(el => el.classList.add('warn'))
+			e.target.querySelectorAll('.none').forEach(el => el.classList.remove('none'))
 		  }else{
 			e.target[0].classList.remove('error')
+			e.target.querySelectorAll('.none').forEach(el => el.classList.remove('warn'))
+			e.target.querySelectorAll('.none').forEach(el => el.classList.add('none'))
 			e.target[0].value = ''
 
 		  }
