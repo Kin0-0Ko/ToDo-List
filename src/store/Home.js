@@ -76,20 +76,22 @@ export default {
 		  }
 		  if (e.target[0].value == ''){
 			e.target[0].classList.add('error')
-			e.target.querySelectorAll('.none').forEach(el => el.classList.add('warn'))
-			e.target.querySelectorAll('.none').forEach(el => el.classList.remove('none'))
+			e.target.querySelectorAll('.warn')[0].style.display = "block"
 		  }else{
 			e.target[0].classList.remove('error')
-			e.target.querySelectorAll('.none').forEach(el => el.classList.remove('warn'))
-			e.target.querySelectorAll('.none').forEach(el => el.classList.add('none'))
+			e.target.querySelectorAll('.warn')[0].style.display = "none"
 			e.target[0].value = ''
 
 		  }
 		  if (e.target[1].value == '' || e.target[1].value.length < 10) {
 		  	e.target[1].classList.add('error')
+			e.target.querySelectorAll('.warn')[1].style.display = "block"
 		  }else{
 		  	e.target[1].classList.remove('error')
+			e.target.querySelectorAll('.warn')[1].style.display = "none"
 		  		e.target[1].value = ''
+
+
 
 		  }
 			// console.log(e.target.value);

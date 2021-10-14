@@ -1,9 +1,9 @@
 <template>
   <div class="home">
 		<form class="add" action="" @submit.prevent="setTitle">
-		  <span class="none">Fill in this field</span>
+		  <span class="warn">Fill in this field</span>
 		  <input class="add_item " type="text"  placeholder="Title" >
-		  <span class="none">Fill in this field. Mimimum 10 symbols</span>
+		  <span class="warn">Fill in this field. Mimimum 10 symbols</span>
 		  <textarea class="add_item " name="About" id="" cols="10" rows="10"  placeholder="About Task" ></textarea>
 		  <div class="btns">
 			  <span></span>
@@ -98,6 +98,7 @@ export default {
 
 .warn
 	color: red
+	display: none 
 	// padding: 5px 0px 0px 5px
 
 .error
