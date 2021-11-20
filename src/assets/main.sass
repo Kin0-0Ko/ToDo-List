@@ -1,16 +1,36 @@
-$mainColor: #918d8d// background
+$mainColor: #f0eaea// background
 $secColor: #000000 // inteface
 $trdColor: #000000 // shadow
 
 body
-	background-color: $mainColor
 	box-sizing: border-box
 	margin: 0px
+	background: no-repeat center/100% url(https://i.natgeofe.com/n/cfa19a0d-eff0-4628-8fdd-2ad8d66845dd/mountain-range-appenzell-switzerland_16x9.jpg)
+	max-height: 100%
+	min-height: 850px
+
+
 button
 	border: none
 a
 	text-decoration: none
-	color: $mainColor
+	&:visited
+		color: #c2c0c0
 textarea
 	resize: none
 	height: 60px
+
+
+::-webkit-scrollbar 
+  width: 10px
+
+::-webkit-scrollbar-track 
+  background: #f1f1f181
+  border-radius: 10px
+
+::-webkit-scrollbar-thumb 
+  background: #222121
+  border-radius: 10px
+
+::-webkit-scrollbar-thumb:hover 
+  background: #3d3c3c

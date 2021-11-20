@@ -60,27 +60,30 @@ export default {
 	align-items: center
 	justify-content: flex-start
 	width: 75%
-	height: 700px
+	overflow: auto
+	max-height: 600px
 
 .add
 	display: flex
 	flex-direction: column
-	background-color: $secColor
+	background-color: #ffffff10
+	backdrop-filter: blur(12px)
 	height: 170px
 	width: 90%
 	padding: 15px
 	border-radius: 20px
-	box-shadow: 0px 0px 20px 10px $trdColor
+	// box-shadow: 0px 0px 20px 10px $trdColor
 .task
 	display: flex
 	flex-direction: column
-	background-color: $secColor
+	background-color: #ffffff10
+	backdrop-filter: blur(12px)
 	height: 170px
 	width: 90%
 	margin-top: 20px
 	padding: 15px
 	border-radius: 20px
-	box-shadow: 0px 0px 20px 10px $trdColor
+	// box-shadow: 0px 0px 20px 10px $trdColor
 .title
 	// margin: 7px
 	padding: 5px	
@@ -118,7 +121,7 @@ export default {
     height: 50px
     border: none
     outline: none
-    color: #fff
+    color: $mainColor
     background: $trdColor
     cursor: pointer
     position: relative
@@ -164,7 +167,7 @@ export default {
     position: absolute;
     width: 100%;
     height: 100%;
-    background: #1a1a1a;
+    background-color: #c2c0c0c5
     left: 0;
     top: 0;
     border-radius: 10px;

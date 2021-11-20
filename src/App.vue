@@ -39,19 +39,24 @@ export default {
 
 .app
 	display: flex
-	margin-left: 7%
-	margin-top: 10%
+	padding-left: 7%
+	padding-top: 10%
+	// width: 100%
+	max-height: 850px
+
 #nav
 	width: 20%
 	display: flex
 	flex-direction: column
-	background-color: $secColor
+	// background-color: $secColor
 	align-items: center
 	justify-content: center
 	height: 300px
-	color: $trdColor
+	color: #ffffff 
 	border-radius: 20px
-	box-shadow: 0px 0px 20px 10px $trdColor
+	// box-shadow: 0px 0px 20px 10px $trdColor
+	background-color: #ffffff10
+	backdrop-filter: blur(12px)
 
 #nav *
 	margin-left: 5px
@@ -59,8 +64,8 @@ export default {
 	padding: 5px
 
 .head
-	color: $mainColor
-	background-color: $secColor
+	color: #ffffff
+	background-color: #29251d
 	display: flex
 	flex-direction: column
 	align-items: center

@@ -57,18 +57,28 @@ export default {
 	align-items: center
 	justify-content: flex-start
 	width: 75%
+	max-height: 600px
+	overflow: auto
+
 	&-task
 		display: flex
 		flex-direction: column
-		background-color: $secColor
-		height: 180px
+		background-color: #ffffff10
+		backdrop-filter: blur(12px)
+		height: 170px
 		width: 90%
 		margin-top: 20px
 		padding: 15px
 		border-radius: 20px
-		box-shadow: 0px 0px 20px 10px $trdColor
 .nothing
 	font-size: 20px
 	margin: 0
+	background-color: #ffffff10
+	backdrop-filter: blur(12px)
+	border-radius: 10px
+	text-align: center
+	width: 75%
+	color: #c2c0c0
+
 		
 </style>
